@@ -20,4 +20,9 @@ export class AppComponent implements OnInit{
     console.log(this.listaDeCompra);
   }
 
+  editarItem(item: Item) {
+    console.log(item);
+    
+  }
+
 }
