@@ -7,7 +7,7 @@ import { ListaDeCompraService } from './service/lista-de-compra.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit, DoCheck{
+export class AppComponent implements OnInit, DoCheck {
   title = 'app-lista-de-compras';
 
   listaDeCompra!: Array<Item>;
@@ -25,15 +25,18 @@ export class AppComponent implements OnInit, DoCheck{
     this.itemParaSerEditado = item;
   }
 
-  deletarItem(id: Number){
+  deletarItem(id: Number) {
     const index = this.listaDeCompra.findIndex((item) => item.id === id);
     this.listaDeCompra.splice(index, 1);
   }
 
-  ngDoCheck() {
-    console.log("DoCheck foi chamado.");
-    
-    this.listaService.atualizarLocalStorage();
+  limparLista() {
+    this.listaDeCompra = [];
   }
 
+  ngDoCheck() {
+    console.log('DoCheck foi chamado.');
+
+    this.listaService.atualizarLocalStorage();
+  }
 }
